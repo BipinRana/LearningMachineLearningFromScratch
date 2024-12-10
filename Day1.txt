@@ -11,7 +11,7 @@ In contrast, a python's list is heterogenous and its size is determined during r
 Pandas is another library that is used often for dealing with large numbers of data. It also helps in filehandling. Pandas also handles missing data (NaN) directly and is often used for initial exploratory data analysis (EDA).
 
 Now, moving on to the data preprocessing: 
-1) Importing dataset: We use pandas to import large set of data sets that we can use to study, make models  
+1) Importing dataset: We use pandas to import large set of data sets that we can use to study, make models.
 
 2) Handling missing data: Sometimes, the data we are handling has some missing values like NaN, 0 and more. These data need to be handled so that there can be precise representations and calculations.To do this, we will use SimpleImputer() from sklearn library. When handling missing data, there are multiple strategies. Some of them include mean, median.
 
