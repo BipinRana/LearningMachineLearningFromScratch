@@ -15,7 +15,7 @@ Now, moving on to the data preprocessing:
 
 2) Handling missing data: Sometimes, the data we are handling has some missing values like NaN, 0 and more. These data need to be handled so that there can be precise representations and calculations.To do this, we will use SimpleImputer() from sklearn library. When handling missing data, there are multiple strategies. Some of them include mean, median.
 
-3) Encoding Categorical data: Our dataset also include categorical data. These data are the non-numerical values, like Country= ['Nepal','USA','France']These data even though they are not numbers, they have impact on the data that can be Rent Price, Pollution Index and so on.So, we used several encoding methods to enumerate them. Two of them are LabelEncoder() and OneHotEncoder() which have their own way of encoding the data
+3) Encoding Categorical data: Our dataset also include categorical data. These data are the non-numerical values, like Country= ['Nepal','USA','France']. These data even though they are not numbers, they have impact on the data that can be Rent Price, Pollution Index and so on.So in order to integrate them into the calculations, we used several encoding methods to enumerate them. Two of them are LabelEncoder() and OneHotEncoder() which have their own way of encoding the data
 
 4) Splitting dataset to test-set and training-set: When creating a model, we use some % of the dataset to train our model. Meanwhile, the remaining % of the dataset is used to test our model.The % can vary according to the dataset. But I have seen that usually 80% of the dataset is used for training and the rest 20% is used for testing.
 
