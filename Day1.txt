@@ -8,22 +8,16 @@ In it there's only one data type, ndarray, representing a n number of dimensiona
 The ndarray is homogeneous data type meaning that there can be only data type in the array and the number  of data in a list cannot be changed.
 In contrast, a python's list is heterogenous and its size is determined during runtime which makes the list operations very slow.
 
-Pandas is another library that is used often for dealing with large numbers of data.
-It also helps in filehandling.
+Pandas is another library that is used often for dealing with large numbers of data. It also helps in filehandling. Pandas also handles missing data (NaN) directly and is often used for initial exploratory data analysis (EDA).
 
 Now, moving on to the data preprocessing: 
 1) Importing dataset: We use pandas to import large set of data sets that we can use to study, make models  
 
-2) Handling missing data: Sometimes, the data we are handling has some missing values like NaN, 0 and more. These data need to be handled so that there can be precise representations and calculations.
-                          To do this, we will use SimpleImputer() from sklearn library. When handling missing data, there are multiple strategies. Some of them include mean, median.
+2) Handling missing data: Sometimes, the data we are handling has some missing values like NaN, 0 and more. These data need to be handled so that there can be precise representations and calculations.To do this, we will use SimpleImputer() from sklearn library. When handling missing data, there are multiple strategies. Some of them include mean, median.
 
-3) Encoding Categorical data: Our dataset also include categorical data. These data are the non-numerical values, like Country= ['Nepal','USA','France']
-                              These data even though they are not numbers, they have impact on the data that can be Rent Price, Pollution Index and so on.
-                              So, we used several encoding methods to enumerate them. Two of them are LabelEncoder() and OneHotEncoder() which have their own way of encoding the data
+3) Encoding Categorical data: Our dataset also include categorical data. These data are the non-numerical values, like Country= ['Nepal','USA','France']These data even though they are not numbers, they have impact on the data that can be Rent Price, Pollution Index and so on.So, we used several encoding methods to enumerate them. Two of them are LabelEncoder() and OneHotEncoder() which have their own way of encoding the data
 
-4) Splitting dataset to test-set and training-set: When creating a model, we use some % of the dataset to train our model. Meanwhile, the remaining % of the dataset is used to test our model. 
-                                                   The % can vary according to the dataset. But I have seen that usually 80% of the dataset is used for training and the rest 20% is used for testing.
+4) Splitting dataset to test-set and training-set: When creating a model, we use some % of the dataset to train our model. Meanwhile, the remaining % of the dataset is used to test our model.The % can vary according to the dataset. But I have seen that usually 80% of the dataset is used for training and the rest 20% is used for testing.
 
-5) Feature Scaling: Our dataset contains wide array of numbers. These numbers sometimes can vary alot causing a lot of inconsistencies and inaccuracies in the model. Thus we use various techniques.
-                    They include Min-Max scaling, Standard scaling.
+5) Feature Scaling: Our dataset contains wide array of numbers. These numbers sometimes can vary alot causing a lot of inconsistencies and inaccuracies in the model. Thus we use various techniques.They include Min-Max scaling, Standard scaling. These techniques simplify the numbers and refine the dataset by standardizing the range of independent variables. Feature scaling is particularly crucial for algorithms sensitive to feature magnitude (e.g., SVMs, K-Means).
                             
