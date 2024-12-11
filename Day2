@@ -1,0 +1,16 @@
+Day2: Linear Regression
+When we think of machine learning, Artifical Intelligence, we directly think of robots, chatGPT and such.
+But the basics start with understanding techniques like regression, greedy algorithms that iteratively finds solutions.
+
+At first we learn about Linear Regression. It is a type of algorithm that creates a line that best represents a set of data. However, this regression model cannot always represent a polynomial/exponential/trigonometric relation. So, we make few assumptions:
+1) There is only one feature or independent variable(x) that the product/vector or dependent variable(y) is dependent on.
+    But what are these terms that i just used? feature? vector? Feature is a set of independent values, they do not depend on any other values. For instance, the number of rooms in a house is an independent value. however, for same feature, we have an important value that depends on it. here, for each room increase, the rent price can increase linearly.
+
+2) There should be linear relation between the feature(x) and the vector(y). If the relation is not linear, there are conditions of overfitting/underfitting.
+
+3) The features (x0,x1,x2,x3..xn) should not be dependent on each other. For example, x0=0,x1=1,x2=1,x3=2,x4=3.. These values of x actually represent a fibbonacci sequence.x3 depends on x0,x1 hence creating a collinearity.
+
+4) The marginal error on the line/model we get, should be small and normally distributed. This normal distributed ensures that the systematic trend in data are captured and the remaining noises(errors) are random.
+
+5) We should also take steps on detecting and removing outliers. Outliers are those exceptional value that drastically deviate the mean,median,mode and this causes unwanted redundancies
+
