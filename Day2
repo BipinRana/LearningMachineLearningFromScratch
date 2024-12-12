@@ -2,7 +2,7 @@ Day2: Linear Regression
 When we think of machine learning, Artifical Intelligence, we directly think of robots, chatGPT and such.
 But the basics start with understanding techniques like regression, greedy algorithms that iteratively finds solutions.
 
-At first we learn about Linear Regression. It is a type of algorithm that creates a line that best represents a set of data. However, this regression model cannot always represent a polynomial/exponential/trigonometric relation. So, we make few assumptions:
+At first we learn about Linear Regression (using single feature). It is a type of algorithm that creates a line that best represents a set of data. However, this regression model cannot always represent a polynomial/exponential/trigonometric relation. So, we make few assumptions:
 1) There is only one feature or independent variable(x) that the product/vector or dependent variable(y) is dependent on.
     But what are these terms that i just used? feature? vector? Feature is a set of independent values, they do not depend on any other values. For instance, the number of rooms in a house is an independent value. however, for same feature, we have an important value that depends on it. here, for each room increase, the rent price can increase linearly.
 
