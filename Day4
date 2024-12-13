@@ -52,47 +52,59 @@ data = {
 # Create DataFrame
 df = pd.DataFrame(data)
 
-# 1. Handle Missing Values
+#Handling Missing Values
 imputer = SimpleImputer(strategy="median")
 processed_features = ['Size (sqft)', 'Bedrooms', 'Bathrooms']
 df[processed_features] = imputer.fit_transform(df[processed_features])
 
-# 2. Encoding Categorical Variables
-# Label Encoding for demonstration (optional)
-label_encoder = LabelEncoder()
-df['Location_Label'] = label_encoder.fit_transform(df['Location'])
-df['Furnished_Label'] = label_encoder.fit_transform(df['Furnished'])
+#Detecting and Handling Outliers (IQR Method)
+def handle_outliers_iqr(df, columns):
+    for column in columns:
+        Q1 = df[column].quantile(0.25)  # First quartile (25%)
+        Q3 = df[column].quantile(0.75)  # Third quartile (75%)
+        IQR = Q3 - Q1  # Interquartile range
 
+        # Define bounds for outliers
+        lower_bound = Q1 - 1.5 * IQR
+        upper_bound = Q3 + 1.5 * IQR
+
+        # Clip outliers to the bounds
+        df[column] = df[column].clip(lower_bound, upper_bound)
+    return df
+
+#Applying outlier handling to numerical features
+numerical_features = ['Size (sqft)', 'Bedrooms', 'Bathrooms', 'Rent (USD)']
+df = handle_outliers_iqr(df, numerical_features)
+
+#Label Encoding
+df['Furnished_Label'] = LabelEncoder().fit_transform(df['Furnished'])
+df.drop(columns=['Furnished'], inplace=True)
 # OneHot Encoding
-onehot_encoder = OneHotEncoder(sparse=False, drop='first')
+onehot_encoder = OneHotEncoder(sparse_output = False)  
 location_encoded = onehot_encoder.fit_transform(df[['Location']])
 location_encoded_df = pd.DataFrame(location_encoded, columns=onehot_encoder.get_feature_names_out(['Location']))
 
+# Concatenate OneHotEncoded columns to the DataFrame
 df = pd.concat([df, location_encoded_df], axis=1)
+df.drop(columns=['Location'], inplace=True)
 
-# Drop original categorical columns for modeling
-df.drop(['Location', 'Furnished'], axis=1, inplace=True)
-
-# 3. Feature Scaling
-scaler_minmax = MinMaxScaler()
-scaler_standard = StandardScaler()
-
-# Min-Max Scaling
-df_minmax_scaled = scaler_minmax.fit_transform(df)
+#Feature Scaling
+#1. Min-Max Scaling
+df_minmax_scaled = MinMaxScaler().fit_transform(df)
 df_minmax_scaled = pd.DataFrame(df_minmax_scaled, columns=df.columns)
 
-# Standardization
-df_standard_scaled = scaler_standard.fit_transform(df)
+#2. Standardization
+df_standard_scaled = StandardScaler().fit_transform(df)
 df_standard_scaled = pd.DataFrame(df_standard_scaled, columns=df.columns)
 
-# 4. Splitting Data for Model Training
+#Splitting Data for Model Training
 X = df.drop(columns=['Rent (USD)'])
 y = df['Rent (USD)']
 
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Output Sections
-print("Original Data:")
+print("Original Data after Outlier Handling:")
 print(df.head())
 print("\nMin-Max Scaled Data:")
 print(df_minmax_scaled.head())
