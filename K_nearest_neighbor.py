@@ -46,7 +46,7 @@ for label in np.unique(y_train):
     plt.scatter(X_train[y_train==label][:,0],X_train[y_train == label][:,1],label=f"Class {label}")
 
 plt.scatter(x_new[0],x_new[1],color='red',label='New Point',marker='x',s=100)
-plt.xlabel('x1');
+plt.xlabel('x1')
 plt.ylabel('x2')
 plt.legend()
 plt.show()
