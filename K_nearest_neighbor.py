@@ -19,7 +19,7 @@ y_train = np.array([0,0,0,1,1,1])
 x_new = np.array([5,6])
 
 def euclidean_distance(x1,x2):
-    return np.sqrt(np.sum(x1-x2)**2)
+    return np.sqrt(np.sum((x1 - x2)**2))
 
 def get_neighbours(X,Y,X_new,k):
     distances = []
