@@ -4,7 +4,6 @@
 # majority class in the neighborhood. With a small 𝑘(e.g., 𝑘=1, the model makes predictions based solely on the single nearest neighbor.
 #If this point is an outlier or noisy, the prediction will reflect that error.
 import numpy as np
-
 X_train = np.array([
     [2,3],
     [1,1],
